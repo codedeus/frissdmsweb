@@ -1,0 +1,57 @@
+/**
+ *  Do not remove this comments bellow. It's the markers used by wiredep to inject
+ *  sass dependencies when defined in the bower.json of your dependencies
+ */
+// bower:scss
+// endbower
+
+/**
+ *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
+ *  all your sass files automatically
+ */
+// injector
+// endinjector
+
+
+.customactive {
+    background-color: rgb(247, 147, 29);
+}
+
+tr:hover, tr:focus {
+    cursor: pointer; }
+
+
+.addbutton,.nav-list{
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 1px 3px 1px rgba(60,64,67,0.149);
+    align-items: center;
+    
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 24px;
+    color: #3c4043;
+    display: inline-flex;
+    font-family: 'Google Sans',Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    height: 48px;
+    letter-spacing: .15px;
+    line-height: 22px;
+    margin: 5px;
+    min-width: 120px;
+    padding: 0 24px 0 0;
+    text-transform: none;
+    width: inherit;
+}
+
+.addbutton:before{
+    border-radius: 50%;
+    border-width: 0;
+    content: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2236%22 height=%2236%22 viewBox=%220 0 36 36%22%3E%3Cpath fill=%22%2334A853%22 d=%22M16 16v14h4V20z%22/%3E%3Cpath fill=%22%234285F4%22 d=%22M30 16H20l-4 4h14z%22/%3E%3Cpath fill=%22%23FBBC05%22 d=%22M6 16v4h10l4-4z%22/%3E%3Cpath fill=%22%23EA4335%22 d=%22M20 16V6h-4v14z%22/%3E%3Cpath fill=%22none%22 d=%22M0 0h36v36H0z%22/%3E%3C/svg%3E');
+    display: block;
+    margin: 0 5px 0 1px;
+    position: relative;
+    height: 36px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    opacity: 1;
+}

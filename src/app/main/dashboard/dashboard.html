@@ -1,0 +1,35 @@
+<div class="alldocument">
+    <div class="pages">
+   
+            <div class="title-bar">
+                <span class="title">All Documents</span>
+            </div>
+   
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Uploaded By</th>
+                    <th>Size</th>                    
+                    <th>Last Accessed </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="file in vm.files | orderBy:'-LastAccessed'" ng-click="vm.select(file)" ng-class="{customactive : vm.selected === file}">
+                    <td >
+                        <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                    </td>
+                    <td >{{file.OriginalFileName}}</td>
+                    <td hide-xs>{{file.UploadedBy}}</td>
+                    <td hide-xs>{{vm.getFileSize(file.FileSize)}}</td>
+                    <td hide show-gt-md>{{file.LastAccessed|date:'medium'}}</td>
+                    <td>
+                        <button ng-click="vm.downloadDoc(file)">download</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
