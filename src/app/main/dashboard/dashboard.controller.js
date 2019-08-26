@@ -1,12 +1,12 @@
 (function () {
     'use strict';
 
-    angular.module('app.dashboard', ['ngFileSaver'])
+    angular.module('app.dashboard')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['UtilityService','RemoteStoreService','FileSaver', 'Blob'];
+    DashboardController.$inject = ['RemoteStoreService','FileSaver', 'Blob','UtilityService'];
 
-    function DashboardController(UtilityService,RemoteStoreService,FileSaver, Blob) {
+    function DashboardController(RemoteStoreService,FileSaver, Blob,UtilityService) {
 
         var vm = this;
 
@@ -20,8 +20,7 @@
          *
          * @param item
          */
-        function select(item)
-        {
+        function select(item){
             vm.selected = item;
         }
 

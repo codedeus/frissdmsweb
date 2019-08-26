@@ -2,7 +2,7 @@
     'use strict';
   
     angular
-        .module('app')
+        .module('app.core')
         .directive('ngFileModel', ['$parse', function ($parse) {
             return {
                 restrict: 'A',

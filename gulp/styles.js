@@ -41,7 +41,6 @@ var buildStyles = function ()
     var injectOptions = {
         transform   : function (filePath)
         {
-          console.log(filePath);
             filePath = filePath.replace(conf.paths.src + '/app/', '');
             return '@import "' + filePath + '";';
         },

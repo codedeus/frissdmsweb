@@ -10,10 +10,11 @@
         var vm = this;
 
         vm.save = function(file){
+            console.log(file);
             var payload = new FormData();
             payload.append('File',file);
             RemoteStoreService.SaveDocument(payload).then(()=>{
-                swal("Good job!", "File saved successfully!", "success");
+                swal("File saved successfully!", "success");
                 vm.myFile = null;
             });
         }

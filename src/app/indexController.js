@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('app.index', [])
+    angular.module('app')
 
             .controller('IndexController', IndexController);
 

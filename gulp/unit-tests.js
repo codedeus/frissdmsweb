@@ -35,10 +35,10 @@ function runTests(singleRun, done)
 
     var localConfig = {
         configFile   : path.join(__dirname, '/../karma.conf.js'),
-        singleRun    : singleRun,
-        autoWatch    : !singleRun,
-        reporters    : reporters,
-        preprocessors: preprocessors
+        // singleRun    : singleRun,
+        // autoWatch    : !singleRun,
+        // reporters    : reporters,
+        //preprocessors: preprocessors
     };
 
     var server = new karma.Server(localConfig, function (failCount)

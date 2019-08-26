@@ -28,34 +28,6 @@
                         templateUrl:'app/layout/sidebar.html'
                     }
                 }
-            })
-            .state('root.dashboard', {
-                url: '/dashboard',
-                data: {
-                    title: 'dashboard',
-                    breadcrumb: 'dashboard'
-                },
-                views: {
-                    'content@root': {
-                        templateUrl: 'app/main/dashboard/dashboard.html',
-                        controller: 'DashboardController',
-                        controllerAs: 'vm'
-                    }
-                }
-            })              
-            .state('root.json', {
-                url: '/json',
-                data: {
-                    title: 'Json',
-                    breadcrumb: 'Json'
-                },
-                views: {
-                    'content@root': {
-                        templateUrl: 'app/main/dashboard/dashboard.html',
-                        controller: 'DashboardController',
-                        controllerAs: 'JC'
-                    }
-                }
-            })
+            });
     }
 })();
