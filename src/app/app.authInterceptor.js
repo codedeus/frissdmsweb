@@ -6,7 +6,6 @@
 
     return {
         request: function (config) {
-            debugger;
             config.headers = config.headers || {};
             config.headers.Username = 'Emmanuel';
             config.headers.Admin = 1;

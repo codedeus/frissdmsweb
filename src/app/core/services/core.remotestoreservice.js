@@ -6,9 +6,9 @@
       .module('app.core')
       .factory('RemoteStoreService', RemoteStoreService);
 
-      RemoteStoreService.$inject = ['$http','BASE_URL'];
+      RemoteStoreService.$inject = ['$http','BASE_URL','$q'];
 
-    function RemoteStoreService($http,BASE_URL) {
+    function RemoteStoreService($http,BASE_URL,$q) {
       //var GenderTable_ = null;
       //var BASE_URL = 'https://localhost:9001/api/';
 
@@ -26,6 +26,7 @@
             break;
           default:
             errorMsg = 'something went wrong.';
+            break
         }
   
         swal("sorry" , errorMsg ,  "error" )
@@ -39,37 +40,43 @@
       return service;
 
       function SaveDocument(payload){
-
-        return $http({
+        var deferred = $q.defer();
+        $http({
             url: `${BASE_URL}Documents`,
             method: 'POST',
             data: payload,
             headers: { 'Content-Type': undefined},
             transformRequest: undefined
         }).then(function(response) {
-            return response.data;
+          deferred.resolve(response.data);
           },showErrorMessage);
+
+          return deferred.promise;
       }
 
       function GetAllDocument(){
-        return $http.get(`${BASE_URL}Documents`)
+        var deferred = $q.defer();
+        $http.get(`${BASE_URL}Documents`)
         .then(function(res) {
-          return res.data;
+          deferred.resolve(res.data);
         })
         .catch(function(res) {
-          return res.data;
+          deferred.reject(res);
         });
+        return deferred.promise;
       }
 
       function DownloadDocument(fileUid){
-        return $http({
-          url: `${BASE_URL}Documents/Download?uid=${fileUid}`,
+        var deferred = $q.defer();
+          $http({
+          url: `${BASE_URL}Documents/${fileUid}/Download`,
           method: 'GET',
           responseType:'blob',
           transformRequest: undefined
         }).then((res)=>{
-          return res.data;
+          deferred.resolve(res.data);
         },showErrorMessage);
+        return deferred.promise;
       }
     }
 })();
