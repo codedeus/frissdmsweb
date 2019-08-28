@@ -2,19 +2,20 @@
 Frontend application for the FRISS Document Management System. An application for uploading, viewing and downloading uploaded documents.
 
 ## Setup and installation
-###Requirements
+### Requirements
 ```
 node
 npm
 python2.7
 msbuild build
 ```
-###Installation
+### Installation
+
 ```node
 npm install
 ```
 
-### Build and Run
+## Build and Run
 This should install all the necessary app and dev dependencies for the project. If everything works fine, run
 ```gulp
 gulp build
