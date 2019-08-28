@@ -26,7 +26,7 @@
             break;
           default:
             errorMsg = 'something went wrong.';
-            break
+            break;
         }
   
         swal("sorry" , errorMsg ,  "error" )
@@ -42,7 +42,7 @@
       function SaveDocument(payload){
         var deferred = $q.defer();
         $http({
-            url: `${BASE_URL}Documents`,
+            url: `${BASE_URL}Documents/create`,
             method: 'POST',
             data: payload,
             headers: { 'Content-Type': undefined},
@@ -69,7 +69,7 @@
       function DownloadDocument(fileUid){
         var deferred = $q.defer();
           $http({
-          url: `${BASE_URL}Documents/${fileUid}/Download`,
+          url: `${BASE_URL}Documents/${fileUid}/download`,
           method: 'GET',
           responseType:'blob',
           transformRequest: undefined

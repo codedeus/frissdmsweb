@@ -39,7 +39,6 @@ describe('RemoteStoreService Factory',function(){
   
     beforeEach(angular.mock.module('app.core'));
     
-  
     beforeEach(inject(function(_RemoteStoreService_,_$q_,_BASE_URL_,_$rootScope_,_$httpBackend_) {
         RemoteStoreService = _RemoteStoreService_;
         $q = _$q_;
