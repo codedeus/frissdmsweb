@@ -7,7 +7,7 @@ Frontend application for the FRISS Document Management System. An application fo
 node
 npm
 python2.7
-msbuild build
+msbuild build tools
 ```
 ### Installation
 
