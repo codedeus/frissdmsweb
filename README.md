@@ -9,14 +9,19 @@ npm
 python2.7
 msbuild build tools
 ```
-### Installation
 
+If you run into issues with node-sass or node-gyp, try installing msbuild tools with ```npm install --global --production windows-build-tools```
+
+### Installation
+This should install all the necessary app and dev dependencies for the project.
 ```node
 npm install
+npm install -g gulp
 ```
+If everything works fine, run
 
 ## Build and Run
-This should install all the necessary app and dev dependencies for the project. If everything works fine, run
+
 ```gulp
 gulp build
 gulp serve
