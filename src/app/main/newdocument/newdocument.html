@@ -5,10 +5,20 @@
     <div class="panel-body">
         <form name="NewDocumentForm">
             <div class="form-group has-feedback" data-ng-class="NewDocumentForm.firstName.$valid ? 'has-success' : (NewDocumentForm.firstName.$pristine ? '' : 'has-error')">
-                <label class="control-label" for="firstName">Select Document to Upload:</label>
-                <input type="file" class="input" id="myfile" ng-file-model="vm.myFile" required>
+                <label class="control-label" for="firstName">Select propery document to Upload:</label>
+                <input type="file" class="input" id="myfile" ng-file-model="vm.propertyFile" required>
             </div>
-            <button id="save-btn" class="btn btn-success" data-ng-click="vm.save(vm.myFile)" data-ng-disabled="vm.myFile == null">Save 
+            <button id="save-btn" class="btn btn-success" data-ng-click="vm.save(vm.propertyFile,'apartmentproperty')" data-ng-disabled="vm.propertyFile == null">Save 
+                <span class="glyphicon glyphicon-ok"></span>
+            </button>
+        </form>
+
+        <form name="NewDocumentForm">
+            <div class="form-group has-feedback" data-ng-class="NewDocumentForm.firstName.$valid ? 'has-success' : (NewDocumentForm.firstName.$pristine ? '' : 'has-error')">
+                <label class="control-label" for="firstName">Select management Document to Upload:</label>
+                <input type="file" class="input" id="managementfile" ng-file-model="vm.managementFile" required>
+            </div>
+            <button id="save-btn" class="btn btn-success" data-ng-click="vm.save(vm.managementFile,'management')" data-ng-disabled="vm.managementFile == null">Save 
                 <span class="glyphicon glyphicon-ok"></span>
             </button>
         </form>

@@ -9,11 +9,11 @@
     function NewDocumentController(RemoteStoreService) {
         var vm = this;
 
-        vm.save = function(file){
-            console.log(file);
+        vm.save = function(file,documentType){
+
             var payload = new FormData();
             payload.append('File',file);
-            RemoteStoreService.SaveDocument(payload).then(()=>{
+            RemoteStoreService.IndexManagementDocument(payload,documentType).then(()=>{
                 swal("File saved successfully!", "success");
                 vm.myFile = null;
             });

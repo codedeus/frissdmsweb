@@ -7,8 +7,13 @@
     return {
         request: function (config) {
             config.headers = config.headers || {};
-            config.headers.Username = 'Emmanuel';
-            config.headers.Admin = 0;
+    
+            if (localStorage&&localStorage.authToken) {
+                console.log((localStorage.authToken))
+                
+                config.headers.Authorization = 'Bearer ' + (localStorage.authToken);
+            }
+            
             return config;
         }
     };

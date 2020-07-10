@@ -7,8 +7,10 @@
 
     config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
-    function config($stateProvider, $urlRouterProvider) {
+    function config($stateProvider, $urlRouterProvider,$locationProvider) {
         $urlRouterProvider.otherwise('/dashboard');
+        
+        $locationProvider.html5Mode(true);
         $stateProvider
             .state('root', {
                 abstract: true,

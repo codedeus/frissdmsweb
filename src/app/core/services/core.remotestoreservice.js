@@ -35,14 +35,30 @@
       var service = {
         SaveDocument,
         GetAllDocument,
-        DownloadDocument
+        DownloadDocument,
+        IndexManagementDocument
       };
       return service;
 
       function SaveDocument(payload){
         var deferred = $q.defer();
         $http({
-            url: `${BASE_URL}Documents/create`,
+            url: `${BASE_URL}Documents/create/fileNamewhatismyname`,
+            method: 'POST',
+            data: payload,
+            headers: { 'Content-Type': undefined},
+            transformRequest: undefined
+        }).then(function(response) {
+          deferred.resolve(response.data);
+          },showErrorMessage);
+
+          return deferred.promise;
+      }
+
+      function IndexManagementDocument(payload,docType){
+        var deferred = $q.defer();
+        $http({
+            url: `${BASE_URL}Search/indexDocument/${docType}`,
             method: 'POST',
             data: payload,
             headers: { 'Content-Type': undefined},

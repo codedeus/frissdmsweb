@@ -4,11 +4,13 @@
     angular.module('app.dashboard')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['RemoteStoreService','FileSaver', 'Blob','UtilityService'];
+    DashboardController.$inject = ['RemoteStoreService','FileSaver', 'Blob','UtilityService','authService','$http'];
 
-    function DashboardController(RemoteStoreService,FileSaver, Blob,UtilityService) {
+    function DashboardController(RemoteStoreService,FileSaver, Blob,UtilityService,authService,$http) {
 
         var vm = this;
+        vm.auth = authService;
+    
 
         vm.select = select;
         vm.getFileSize = getFileSize;
@@ -23,7 +25,6 @@
         function select(item){
             vm.selected = item;
         }
-
         
         function getAllFiles(){
             RemoteStoreService.GetAllDocument().then((res)=>{

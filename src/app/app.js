@@ -2,8 +2,10 @@
     'use strict';
 
     angular.module('app', [
+        'angular-jwt',
         'ui.router',
         'app.dashboard',
-        'app.newdocument'
+        'app.newdocument',
+        'app.login'
     ]);
 })();

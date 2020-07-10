@@ -1,4 +1,8 @@
-<div class="alldocument">
+<h4 ng-if="!vm.auth.isAuthenticated()">
+  You are not logged in! Please <a ng-click="vm.auth.login()">Log In</a> to continue.
+</h4>
+
+<div ng-if="vm.auth.isAuthenticated()" class="alldocument">
     <div class="pages">
    
             <div class="title-bar">
