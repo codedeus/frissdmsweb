@@ -7,7 +7,7 @@
         function($transitions) {
 
         $transitions.onStart({}, function() {
-
+            
         });
     }]);
 })();
