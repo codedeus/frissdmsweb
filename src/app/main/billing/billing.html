@@ -1,0 +1,98 @@
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <!-- <h3 class="panel-title">{{vm.departmentCategory.Template}} Billing</h3> -->
+        <h3 class="panel-title">Patient Details</h3>
+    </div>
+    <div class="panel-body">
+        <form name="bioDataForm" style="margin-top: -10px;">
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="inputEmail4">First Name</label>
+                <input type="text" class="form-control" id="firstName" required placeholder="First Name" ng-model="vm.bill.CustomerFirstName">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputPassword4">Last Name</label>
+                <input type="text" class="form-control" id="inputPassword4" required placeholder="Last Name" ng-model="vm.bill.CustomerLastName">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputState">Gender</label>
+                <select id="inputState" ng-model="vm.bill.CustomerGender" required class="form-control">
+                  <option selected>Choose...</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="inputAddress">Address</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="" ng-model="vm.bill.CustomerAddress">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputAddress">Phone Number</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="" ng-model="vm.bill.CustomerPhoneNumber">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputCity">Date of Birth</label>
+                    <input type="date" class="form-control" id="inputCity" required ng-model="vm.bill.CustomerDateOfBirth">
+                </div>
+            </div>    
+          </form>
+    </div>
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Bill Details</h3>
+    </div>
+    <div class="panel-body">
+        <form style="margin-top: -10px;">
+
+            <div class="form-group col-md-12">
+                <label for="inputState">Service</label>
+                <select class="form-control" ng-change="vm.serviceSeleted(vm.selectedService)" ng-model="vm.selectedService">
+                    <option ng-repeat="service in vm.services" ng-value="service">
+                        {{service.Name}} {{service.BrandName}}
+                    </option>
+                </select>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>    
+                        <th>Net Amount</th>   
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="service in vm.bill.Services">
+                        <td >
+                            {{$index+1}}
+                        </td>
+                        <td >{{service.Name}}</td>
+                        <td hide-xs>{{service.Price}}</td>
+                        <td hide-xs>
+                            <span>
+                                <input type="number" min="1" style="border: none; background-color: inherit;" ng-model="service.Quantity" />
+                            </span>
+                        </td>
+                        <td hide-xs>{{service.Price * service.Quantity}}</td>
+                        <td>
+                            <button class="btn btn-danger" ng-click="vm.removeService(service)">remove</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="container my-3 bg-light">
+                <div class="col-md-12 text-center">
+                    <button type="button" ng-click="vm.submitBill()" ng-disabled="bioDataForm.$invalid || vm.bill == null || vm.bill.Services == null || vm.bill.Services.length <= 0" class="btn btn-primary">Submit</button>
+                    <button type="button" ng-click="vm.clearForm()" class="btn btn-warning">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

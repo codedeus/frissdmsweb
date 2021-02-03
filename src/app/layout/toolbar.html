@@ -1,11 +1,12 @@
-<div class="tools">
-	<a data-ng-click="IC.navOff()" class="toggle-button off">
-		<img src="assets/images/toggle.png" alt="">
-	</a>
-	<a data-ng-click="IC.navOn()" class="toggle-button on">
-		<img src="assets/images/toggle.png" alt="">
-	</a>
-	<div class="logo">
-		<img src="assets/images/logos/Friss-logo-transparent.png" alt="">
-	</div>
-</div>
+<nav class="navbar navbar-default" style="height: 70px;">
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div>
+		<form class="navbar-form navbar-left" style="font-size: 20px; margin: auto;	width: 60%;">
+			<h2>{{IC.currentPage}}</h2>
+		</form>
+		<ul class="nav navbar-nav navbar-right" style="margin-top: 15px; font-size: 20px; margin-right: 20px; ">
+			<li><a ng-click="IC.Logout()">Logout</a></li>
+		</ul>
+	</div><!-- /.navbar-collapse -->
+</nav>

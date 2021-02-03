@@ -108,7 +108,7 @@ body {
     top: 0px;
     right: 0px;
     left: 130px;
-    height: 70px;
+    height: 50px;
     border-bottom: 1px solid #0DC66A;
     background-color: white;
     z-index: 3;
@@ -133,7 +133,7 @@ body {
 
 .top-bar .tools .logo {
     text-align: center;
-    height: 70px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;

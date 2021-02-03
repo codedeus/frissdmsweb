@@ -16,14 +16,17 @@
         var errorMsg = "";
         switch(message.status){
           case 401:
-            errorMsg = 'Invalid Username';
+            errorMsg = 'Invalid Email/Password';
             break;
           case 403:
             errorMsg = `You don't have permission to perform this action`;
             break;
           case 404:
-            errorMsg = 'file not found.';
+            errorMsg = 'resource not found.';
             break;
+          case 400:
+              errorMsg = message.data;
+              break;
           default:
             errorMsg = 'something went wrong.';
             break;
@@ -32,31 +35,10 @@
         swal("sorry" , errorMsg ,  "error" )
       }
 
-      var service = {
-        SaveDocument,
-        GetAllDocument,
-        DownloadDocument
-      };
-      return service;
-
-      function SaveDocument(payload){
+      function GetServices(department){
         var deferred = $q.defer();
-        $http({
-            url: `${BASE_URL}Documents/create`,
-            method: 'POST',
-            data: payload,
-            headers: { 'Content-Type': undefined},
-            transformRequest: undefined
-        }).then(function(response) {
-          deferred.resolve(response.data);
-          },showErrorMessage);
-
-          return deferred.promise;
-      }
-
-      function GetAllDocument(){
-        var deferred = $q.defer();
-        $http.get(`${BASE_URL}Documents`)
+        
+        $http.get(`${BASE_URL}Services?department=${department}`)
         .then(function(res) {
           deferred.resolve(res.data);
         })
@@ -66,17 +48,71 @@
         return deferred.promise;
       }
 
-      function DownloadDocument(fileUid){
+      function SubmitBill(bill){
         var deferred = $q.defer();
-          $http({
-          url: `${BASE_URL}Documents/${fileUid}/download`,
-          method: 'GET',
-          responseType:'blob',
-          transformRequest: undefined
-        }).then((res)=>{
+        $http.post(`${BASE_URL}invoice`,bill)
+        .then(function(res) {
+          deferred.resolve(res.data);
+        })
+        .catch(function(res) {
+          deferred.reject(res);
+        });
+        return deferred.promise;
+      }
+
+      const GetInvoices = (searchText) =>{
+        var deferred = $q.defer();
+        $http.get(`${BASE_URL}invoice?searchText=${searchText}`)
+        .then(function(res) {
+          deferred.resolve(res.data);
+        })
+        .catch(function(res) {
+          deferred.reject(res);
+        });
+        return deferred.promise;
+      }
+
+      const GetSelectedInvoice = (id) =>{
+        var deferred = $q.defer();
+        $http.get(`${BASE_URL}invoice/${id}`)
+        .then(function(res) {
+          deferred.resolve(res.data);
+        })
+        .catch(function(res) {
+          deferred.reject(res);
+        });
+        return deferred.promise;
+      }
+
+      function SubmitPayment(id){
+        var deferred = $q.defer();
+        $http.post(`${BASE_URL}invoice/${id}/pay`,{})
+        .then(function(res) {
+          deferred.resolve(res.data);
+        })
+        .catch(function(res) {
+          deferred.reject(res);
+        });
+        return deferred.promise;
+      }
+      
+      function Login(payload){
+        var deferred = $q.defer();
+        $http.post(`${BASE_URL}auth/login`, payload)
+        .then(function(res) {
           deferred.resolve(res.data);
         },showErrorMessage);
         return deferred.promise;
       }
+
+      var service = {
+        GetServices,
+        SubmitBill,
+        GetSelectedInvoice,
+        GetInvoices,
+        SubmitPayment,
+        Login
+      };
+      return service;
     }
 })();

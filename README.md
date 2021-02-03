@@ -1,5 +1,5 @@
-# FRISS Web
-Frontend application for the FRISS Document Management System. An application for uploading, viewing and downloading uploaded documents.
+# MBPS Web
+Frontend application for the MBP System.
 
 ## Setup and installation
 ### Requirements
