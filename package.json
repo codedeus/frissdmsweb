@@ -8,7 +8,7 @@
   "dependencies": {
     "bizniz": "^1.0.0",
     "natives": "^1.1.6",
-    "node-sass": "^4.5.3"
+    "node-sass": "^7.0.0"
   },
   "scripts": {
     "test": "gulp test",
